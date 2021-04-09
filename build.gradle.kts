@@ -30,6 +30,9 @@ repositories {
 }
 dependencies {
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.16.0")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.32")
+    implementation("com.github.ajalt.clikt:clikt:3.1.0")
+    implementation("com.github.doyaaaaaken:kotlin-csv-jvm:0.15.1")
 }
 
 // Configure gradle-intellij-plugin plugin.
@@ -118,5 +121,12 @@ tasks {
         // Specify pre-release label to publish the plugin in a custom Release Channel automatically. Read more:
         // https://plugins.jetbrains.com/docs/intellij/deployment.html#specifying-a-release-channel
         channels(properties("pluginVersion").split('-').getOrElse(1) { "default" }.split('.').first())
+    }
+
+    runIde {
+        val input: String? by project
+        val output: String? by project
+        args = listOfNotNull("stats", input, output)
+        jvmArgs = listOf("-Djava.awt.headless=true")
     }
 }
