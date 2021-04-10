@@ -1,6 +1,5 @@
 package statistic
 
-import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import org.jetbrains.kotlin.idea.core.util.getLineCount
 import org.jetbrains.kotlin.idea.core.util.getLineNumber
@@ -86,7 +85,9 @@ object ModifiersStatistic : Statistic {
     override val name = "modifiers"
 
     override fun extract(function: KtNamedFunction): String = with(function) {
-        modifierList?.getChildrenOfType<LeafPsiElement>()?.map { it.text }?.filter { it.isNotBlank() && !it.startsWith("/") }
+        modifierList?.getChildrenOfType<LeafPsiElement>()
+            ?.map { it.text }
+            ?.filter { it.isNotBlank() && !it.startsWith("/") }
             ?.joinToString(" ") ?: ""
     }
 }

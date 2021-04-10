@@ -16,8 +16,8 @@ class PluginRunner : ApplicationStarter {
 }
 
 class Command : CliktCommand() {
-    private val input by argument(help="Path to dataset").file(mustExist = true, canBeDir = true)
-    private val output by argument(help="Path to output csv").file(canBeDir = false)
+    private val input by argument(help = "Path to dataset").file(mustExist = true, canBeDir = true)
+    private val output by argument(help = "Path to output csv").file(canBeDir = false)
 
     override fun run() {
         println("Reading from ${input.absolutePath}")
@@ -29,4 +29,3 @@ class Command : CliktCommand() {
         exitProcess(0)
     }
 }
-
