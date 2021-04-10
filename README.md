@@ -1,10 +1,12 @@
 # Kotlin Stats Extractor
 
+<!-- Plugin description -->
 This is a plugin for IntelliJ IDEA that extracts statistics from `.kt` files using PSI and saves it in a `.csv` format.
 
-Currently it extracts statistics only for extension functions.
+Currently, it extracts statistics only for extension functions.
 
 It is a very small project. Thus, can be easily extended.
+<!-- Plugin description end -->
 
 ## How to run?!
 
