@@ -2,6 +2,7 @@ package statistic
 
 import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.tree.LeafPsiElement
+import org.jetbrains.kotlin.idea.core.util.getLineCount
 import org.jetbrains.kotlin.idea.core.util.getLineNumber
 import org.jetbrains.kotlin.psi.KtClass
 import org.jetbrains.kotlin.psi.KtFunction
@@ -37,7 +38,7 @@ object FunctionNameStatistic : Statistic {
     override val name = "function name"
 
     override fun extract(function: KtNamedFunction): String = with(function) {
-        name ?: ""
+        name?.splitTokenIntoWords() ?: ""
     }
 }
 
@@ -85,8 +86,8 @@ object ModifiersStatistic : Statistic {
     override val name = "modifiers"
 
     override fun extract(function: KtNamedFunction): String = with(function) {
-        modifierList?.getChildrenOfType<LeafPsiElement>()?.map { it.text }?.filter { it.isNotBlank() }
-            ?.joinToString("|") ?: ""
+        modifierList?.getChildrenOfType<LeafPsiElement>()?.map { it.text }?.filter { it.isNotBlank() && !it.startsWith("/") }
+            ?.joinToString(" ") ?: ""
     }
 }
 
@@ -118,7 +119,7 @@ object BodyLengthStatistic : Statistic {
     override val name = "body length"
 
     override fun extract(function: KtNamedFunction): Int = with(function) {
-        bodyExpression?.text?.length ?: 0
+        getLineCount()
     }
 }
 

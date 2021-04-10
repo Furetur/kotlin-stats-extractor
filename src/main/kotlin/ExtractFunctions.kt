@@ -5,12 +5,13 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.PsiManager
 import org.jetbrains.kotlin.psi.KtNamedFunction
+import org.jetbrains.kotlin.psi.psiUtil.isExtensionDeclaration
 import java.io.File
 
 fun extractFunctions(directory: File): Sequence<KtNamedFunction> = sequence {
     for (psiFile in directory.psiFiles()) {
         for (psiElement in psiFile.preorder()) {
-            if (psiElement is KtNamedFunction) {
+            if (psiElement is KtNamedFunction && psiElement.isExtensionDeclaration()) {
                 yield(psiElement)
             }
         }
