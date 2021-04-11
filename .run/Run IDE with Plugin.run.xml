@@ -5,7 +5,7 @@
       <option name="executionName" />
       <option name="externalProjectPath" value="$PROJECT_DIR$" />
       <option name="externalSystemIdString" value="GRADLE" />
-      <option name="scriptParameters" value="" />
+      <option name="scriptParameters" value="-Pinput=&quot;$PROJECT_DIR$/src/main/resources/datasets/ktor&quot; -Poutput=&quot;$PROJECT_DIR$/output/ktor.csv&quot;" />
       <option name="taskDescriptions">
         <list />
       </option>

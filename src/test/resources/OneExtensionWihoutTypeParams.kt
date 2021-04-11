@@ -1,0 +1,1 @@
+fun List<Any>.returnIt() = this

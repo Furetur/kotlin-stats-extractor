@@ -29,6 +29,10 @@ repositories {
     jcenter()
 }
 dependencies {
+    implementation(kotlin("reflect:1.4.31"))
+    testImplementation("io.strikt:strikt-core:0.30.0")
+    testImplementation("junit:junit:4.13")
+
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.16.0")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.32")
     implementation("com.github.ajalt.clikt:clikt:3.1.0")
@@ -127,6 +131,11 @@ tasks {
         val input: String? by project
         val output: String? by project
         args = listOfNotNull("stats", input, output)
+        jvmArgs = listOf("-Djava.awt.headless=true")
+    }
+
+    test {
+        useJUnit()
         jvmArgs = listOf("-Djava.awt.headless=true")
     }
 }

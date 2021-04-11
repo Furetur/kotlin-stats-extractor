@@ -10,7 +10,6 @@ class PluginRunner : ApplicationStarter {
     override fun getCommandName() = "stats"
 
     override fun main(args: MutableList<String>) {
-        println("Arguments ${args.drop(1)}")
         Command().main(args.drop(1))
     }
 }

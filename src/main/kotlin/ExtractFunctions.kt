@@ -8,15 +8,12 @@ import org.jetbrains.kotlin.psi.KtNamedFunction
 import org.jetbrains.kotlin.psi.psiUtil.isExtensionDeclaration
 import java.io.File
 
-fun extractFunctions(directory: File): Sequence<KtNamedFunction> = sequence {
-    for (psiFile in directory.psiFiles()) {
-        for (psiElement in psiFile.preorder()) {
-            if (psiElement is KtNamedFunction && psiElement.isExtensionDeclaration()) {
-                yield(psiElement)
-            }
-        }
-    }
-}
+fun extractFunctions(directory: File): Sequence<KtNamedFunction> =
+    directory.psiFiles().flatMap { psiFile -> psiFile.allExtensionFunctions() }
+
+
+fun PsiFile.allExtensionFunctions() =
+    preorder().filterIsInstance<KtNamedFunction>().filter { it.isExtensionDeclaration() }
 
 private fun PsiElement.preorder(): Sequence<PsiElement> = sequence {
     yield(this@preorder)

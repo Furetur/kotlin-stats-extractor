@@ -1,0 +1,1 @@
+fun <T> List<T>.itself() = this

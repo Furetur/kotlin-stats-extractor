@@ -1,0 +1,1 @@
+suspend infix fun Any?.or(x: Any?) = this ?: x

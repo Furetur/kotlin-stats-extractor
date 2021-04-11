@@ -1,0 +1,1 @@
+fun <T : Number> List<T>.maximum() = this
