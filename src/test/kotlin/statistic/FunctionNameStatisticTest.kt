@@ -6,7 +6,6 @@ import strikt.assertions.isEqualTo
 import strikt.assertions.isFalse
 import strikt.assertions.isTrue
 
-
 internal class StatisticTest : BaseTestCase() {
     fun `test should correctly extract function name`() {
         val function = functionFrom("OneUnaryInfixExtension")
