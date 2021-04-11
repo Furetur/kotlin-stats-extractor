@@ -11,7 +11,6 @@ import java.io.File
 fun extractFunctions(directory: File): Sequence<KtNamedFunction> =
     directory.psiFiles().flatMap { psiFile -> psiFile.allExtensionFunctions() }
 
-
 fun PsiFile.allExtensionFunctions() =
     preorder().filterIsInstance<KtNamedFunction>().filter { it.isExtensionDeclaration() }
 
