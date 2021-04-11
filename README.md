@@ -8,6 +8,14 @@ Currently, it extracts statistics only for extension functions.
 It is a very small project. Thus, can be easily extended.
 <!-- Plugin description end -->
 
+## How I Used It
+
+I extracted statistics of source code from [Ktor](https://github.com/ktorio/ktor) and [Strikt](https://github.com/robfletcher/strikt).
+
+### Visualization
+
+I visualized the extracted stats in `notebooks/extensions.ipynb` --> [link](https://github.com/Furetur/kotlin-stats-extractor/blob/main/notebooks/extensions.ipynb).
+
 ## How to run?!
 
 Run
@@ -71,8 +79,3 @@ I consider extension functions to be one of the most important features of Kotli
 
 I extracted stats from [Ktor](https://github.com/ktorio/ktor) and [Strikt](https://github.com/robfletcher/strikt/)
 and they are located at `output/ktor.csv` and `output/strikt.csv`
-
-## Analysis
-
-I analyzed the extracted stats and saved everything in a form of an IPython Notebook
-which is located at `notebooks/extensions.ipynb`.
