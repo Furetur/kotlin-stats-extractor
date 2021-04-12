@@ -31,7 +31,7 @@ repositories {
 dependencies {
     implementation(kotlin("reflect:1.4.31"))
     testImplementation("io.strikt:strikt-core:0.30.0")
-    testImplementation("junit:junit:4.13")
+    testImplementation("junit:junit:4.13.2")
 
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.16.0")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.32")
