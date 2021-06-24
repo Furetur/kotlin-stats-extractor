@@ -34,7 +34,7 @@ dependencies {
     testImplementation("junit:junit:4.13")
 
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.16.0")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.32")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.20")
     implementation("com.github.ajalt.clikt:clikt:3.1.0")
     implementation("com.github.doyaaaaaken:kotlin-csv-jvm:0.15.1")
 }
